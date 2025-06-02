@@ -1,10 +1,11 @@
 #include <stdio.h>
  
 int main() {
-    //variaveis
+    //variaveis de todas as peças - rainha
     int torre = 1;
     int bispo = 1;
-
+    int cavalo = 1;
+   
     //peça torre utilizando o WHILE
     printf("TORRE\n");
     while (torre <= 5) {
@@ -25,8 +26,21 @@ int main() {
 {
     printf("ESQUERDA\n", rainha);
 }   
+   
+    //paça cavalo utilizando loop aninhada
+   
+   printf("\nCAVALO\n");
+    while (cavalo--)
+    {
+        for(int c = 0; c < 2; c++) {
+           printf("DIREITA\n");
+        }
+    printf("CIMA\n");
     
-    return 0;
+    }
+
+
+     return 0;
 }
    
 
