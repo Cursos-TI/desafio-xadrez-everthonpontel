@@ -1,48 +1,53 @@
 #include <stdio.h>
- 
-int main() {
-    //variaveis de todas as peças - rainha
-    int torre = 1;
-    int bispo = 1;
-    int cavalo = 1;
-   
-    //peça torre utilizando o WHILE
-    printf("TORRE\n");
-    while (torre <= 5) {
-        printf("DIREITA\n", torre);
-        torre++;
-    }
-   
-    //peça bispo utilizando o DO-WHILE
-   printf("\nBISPO\n");
-   do {
-        printf("CIMA,DIREITA\n", bispo);
-        bispo++;
-    } while (bispo <= 5);
-
-    //peça rainha utilizando o FOR
-   printf("\nRAINHA\n");
-   for ( int rainha = 1; rainha <= 8; rainha++)
-{
-    printf("ESQUERDA\n", rainha);
-}   
-   
-    //paça cavalo utilizando loop aninhada
-   
-   printf("\nCAVALO\n");
-    while (cavalo--)
-    {
-        for(int c = 0; c < 2; c++) {
-           printf("DIREITA\n");
+ //recursividade do BISPO,TORRE,RAINHA e CAVALO
+void moverbispo(int passos) {
+    for (int i = 0; i < passos; i++) {
+        printf("DIREITA\n");
+        if (i < passos - 1) {
+            printf("CIMA\n");
         }
-    printf("CIMA\n");
-    
     }
+}
+void movertorre(int passos) {
+    if (passos > 0) {
+        printf("DIREITA\n");
+        movertorre(passos - 1);
+    }
+}
+void moverrainha(int passos) {
+    if (passos > 0) {
+        printf("ESQUERDA\n");
+        moverrainha(passos - 1);
+    }
+}
+void movercavalo(int passos) {
+    for (int i = 0; i < passos; i++) {
+        printf("cima\n");
+    }
+    printf("direita\n");
+}
 
+
+
+int main() {
+    //variaveis das peças: BISPO,TORRE,RAINHA e CAVALO
+    printf("BISPO\n");
+    moverbispo(3);
+    printf("===========\n");
+    
+    printf("\nTORRE\n");
+    movertorre(5);
+    printf("===========\n");
+    
+    printf("\nRAINHA\n");
+    moverrainha(8);
+    printf("===========\n");
+    
+    printf("\nCAVALO\n");
+    movercavalo(2);
+    printf("===========\n");
+    
+   
 
      return 0;
 }
-   
-
-
-
